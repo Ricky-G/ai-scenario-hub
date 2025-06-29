@@ -54,8 +54,8 @@ User Input → Intent Detection → Authentication → Success/Termination
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/semantic-kernel-multi-agent.git
-   cd semantic-kernel-multi-agent
+   git clone https://github.com/ricky-g/semantic-kernal-multi-agen-scenarios.git
+   cd semantic-kernal-multi-agen-scenarios
    ```
 
 2. **Install dependencies**
@@ -135,7 +135,7 @@ Assistant: Authentication successful! You can now access your account balance. Y
 ## 📁 Project Structure
 
 ```
-semantic-kernel-multi-agent/
+semantic-kernal-multi-agen-scenarios/
 ├── app.py                 # Main application with multi-agent system
 ├── requirements.txt       # Python dependencies
 ├── .env.sample           # Environment variable template
