@@ -2,68 +2,74 @@
 
 ## Repository Context
 
-This repository contains multi-agent orchestration examples using Microsoft's Semantic Kernel framework. Each scenario demonstrates specific patterns for coordinating multiple AI agents.
+This repository contains AI and Speech Services scenarios for experimentation and learning. Each scenario provides complete working code for common AI patterns including speech processing, real-time transcription, and agent orchestration.
 
-## Code Style & Patterns
+## Code Style & Standards
 
 **Python Conventions:**
 - Use type hints for all function parameters and return values
 - Follow PEP 8 naming conventions
-- Use dataclasses for state management
-- Implement async/await patterns for agent interactions
+- Implement async/await patterns for AI service interactions
+- Include comprehensive error handling
 
-**Agent Architecture:**
-- Each scenario should have separate agent classes for distinct responsibilities
-- Use an orchestrator pattern to coordinate multiple agents
-- Implement proper state management across agent interactions
-- Include error handling and graceful degradation
-
-**File Structure:**
-- Each scenario in its own folder with descriptive name
-- `app.py` as the main entry point
-- `README.md` with technical implementation details
+**Scenario Architecture:**
+- Each scenario is self-contained in its own folder
+- Use `app.py` as the main entry point
+- Include detailed documentation and examples
 - Follow existing folder structure patterns
 
-## Semantic Kernel Specifics
+**File Structure:**
+```
+scenario-name/
+├── app.py                 # Main application
+├── README.md              # Documentation & setup
+├── requirements.txt       # Dependencies
+└── .env                   # Configuration template
+```
 
-Use documenation from the offical site https://learn.microsoft.com/en-us/semantic-kernel/overview/
+## AI Service Integration
 
-**Agent Implementation:**
-- Use Semantic Kernel's chat completion service
-- Implement proper prompt templates and function calling
-- Use kernel plugins for reusable functionality
-- Follow SK's async patterns
-
-**Configuration:**
-- Use environment variables for Azure OpenAI configuration
+**Azure Services:**
+- Use environment variables for Azure credentials
+- Handle authentication and API errors gracefully
+- Follow Azure SDK best practices
 - Support the existing `.env` pattern
-- Handle missing configuration gracefully
+
+**Speech Services:**
+- Use SSML for consistent voice characteristics
+- Implement proper audio streaming patterns
+- Handle real-time processing efficiently
+
+**Agent Orchestration:**
+- Use Semantic Kernel for multi-agent scenarios
+- Implement proper state management
+- Include retry mechanisms and graceful termination
 
 ## Documentation Standards
 
 **Scenario READMEs:**
-- Lead with the technical problem being solved
-- Include implementation architecture overview
-- Provide code examples for key concepts
-- List prerequisites and setup instructions
-- Keep language technical and developer-focused
+- Lead with the problem being solved
+- Include clear setup instructions
+- Provide working code examples
+- List prerequisites and estimated costs
+- Keep language accessible for learning
 
 **Code Comments:**
-- Document complex orchestration logic
-- Explain retry mechanisms and state transitions
-- Comment on AI prompt strategies
+- Document complex AI integration logic
+- Explain SSML and voice parameter choices
+- Comment on retry mechanisms and error handling
 
 ## Testing & Validation
 
-- Test scenarios end-to-end with real Azure OpenAI calls
-- Validate error handling paths
-- Ensure graceful degradation when APIs are unavailable
-- Test state management across multiple agent interactions
+- Test scenarios with real Azure services
+- Validate error handling and edge cases
+- Ensure consistent performance across different inputs
+- Test authentication and configuration scenarios
 
 ## Contribution Guidelines
 
-When suggesting new scenarios:
-- Focus on real-world multi-agent orchestration patterns
-- Demonstrate specific technical challenges and solutions
-- Avoid duplicating existing scenario concepts
-- Include proper error handling and retry logic
+When adding new scenarios:
+- Focus on practical AI implementation patterns
+- Demonstrate real-world use cases
+- Include complete working examples
+- Ensure scenarios are self-contained and well-documented

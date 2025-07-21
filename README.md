@@ -1,80 +1,133 @@
-# Semantic Kernel Multi-Agent Scenarios
+# AI Scenario Hub 🤖
 
-Code examples demonstrating multi-agent orchestration patterns using Microsoft's Semantic Kernel framework.
+Code samples for Azure AI and Speech Services.
+Each folder contains a working example with setup instructions.
 
-## Scenarios
+> **Note:** These implementations are designed for development and testing environments. Review security configurations before production deployment.
 
-### 1. [Agent Retry Limit](./agent-retry-limit/)
+## Overview
 
-Implements retry limits and graceful termination in multi-agent conversations using a mock authentication flow.
+Code samples for Azure AI service integrations. Each folder contains a standalone implementation
+that demonstrates how to solve specific problems with Azure OpenAI, Speech Services, and agent orchestration.
 
-**Technical Features:**
-- Retry counters across agent interactions
-- AI-based topic change detection
-- State machine pattern with graceful termination
-- Cross-agent state management
+### What's included:
+• **Working code examples** - Clone and run implementations
+• **Configuration templates** - Environment setup for Azure services  
+• **Implementation docs** - Technical details and API usage
+• **Common patterns** - Reusable approaches for typical scenarios
 
-**Implementation:** Intent detection → Authentication flow → Orchestrator with retry limits
+## Available Scenarios
 
-[View implementation details](./agent-retry-limit/README.md)
+### Speech & Audio Processing
 
-## Setup
+| Scenario | Implementation | Status | Technical Features |
+|----------|------------|---------|---------------|
+| [Text-to-Speech Voice Consistency](./text-to-speech/) | Solves voice parameter drift in Azure TTS conversations | ✅ Ready | SSML parameter locking, prosody control, consistent audio output |
+| [Real-time Speech Transcription](./gpt4o-realtime-transcribe/) | WebSocket-based real-time speech-to-text with GPT-4o | ✅ Ready | WebSocket streaming, audio capture, real-time processing pipeline |
 
-**Prerequisites:**
-- Python 3.8+
-- Azure OpenAI account with GPT-4 deployment
+### AI Agent Orchestration
 
-**Installation:**
+| Scenario | Implementation | Status | Technical Features |
+|----------|------------|---------|---------------|
+| [Semantic Kernel Multi-Agent Retry Limit](./semantic-kernel-agent-retry-limit/) | Multi-agent conversation flow with retry logic and termination | ✅ Ready | State management, retry counters, conversation orchestration |
+
+### Contributing scenarios:
+Submit technical scenarios via [issues](https://github.com/Ricky-G/ai-scenario-hub/issues) with implementation requirements.
+
+## Setup Instructions
+
+### 1. Repository setup
 ```bash
-git clone https://github.com/ricky-g/semantic-kernal-multi-agen-scenarios.git
-cd semantic-kernal-multi-agen-scenarios
+git clone https://github.com/Ricky-G/ai-scenario-hub.git
+cd ai-scenario-hub
+```
+
+### 2. Scenario selection
+```bash
+cd <scenario-directory>
+```
+
+### 3. Environment configuration
+```bash
+# Configure Azure credentials in .env file
+cp .env.template .env  # Edit with your service keys
 pip install -r requirements.txt
-```
-
-**Configuration:**
-```bash
-cp .env.sample .env
-# Edit .env with your Azure OpenAI credentials
-```
-
-**Run scenario:**
-```bash
-cd agent-retry-limit
 python app.py
 ```
 
-## Environment Configuration
+## Dependencies
 
-Required `.env` variables:
-```env
-AZURE_OPENAI_ENDPOINT=https://your-resource.openai.azure.com/
-AZURE_OPENAI_API_KEY=your-api-key
-AZURE_OPENAI_API_VERSION=2024-02-01
-AZURE_OPENAI_GPT_4_1_DEPLOYMENT_NAME=your-gpt4-deployment-name
-```
+**Required services:**
+• **Azure Subscription** - [Setup guide](https://azure.microsoft.com/free/)
+• **Azure OpenAI** - GPT-4/GPT-4o access required
+• **Azure Speech Services** - For TTS scenarios
+
+**Development environment:**
+• **Python 3.8+** - [Download](https://www.python.org/downloads/)
+• **Azure CLI** - [Installation](https://learn.microsoft.com/cli/azure/install-azure-cli)
+
+## Technology Stack
+
+**AI Services:**
+• Azure OpenAI (GPT-4, GPT-4o)
+• Azure Speech Services
+• Semantic Kernel SDK
+
+**Infrastructure:**
+• WebSocket connections
+• SSML markup
+• Audio processing (PyAudio)
+• Async/await patterns
 
 ## Repository Structure
 
 ```
-semantic-kernal-multi-agen-scenarios/
-├── agent-retry-limit/          
-│   ├── app.py                  
-│   └── README.md              
-├── requirements.txt           
-├── .env.sample               
-└── README.md                 
+scenario-name/
+├── README.md              # Implementation guide and API docs
+├── app.py                 # Main application entry point
+├── requirements.txt       # Python dependencies
+└── .env                   # Service configuration (template)
 ```
+
+## Development Notes
+
+**Implementation patterns:**
+• Each scenario is self-contained with minimal dependencies
+• Configuration via environment variables
+• Error handling and logging included
+• Async patterns for service calls
+
+**Service integration:**
+• Authentication via Azure SDK patterns
+• Retry logic for transient failures  
+• Resource cleanup and connection management
+• Environment-specific configuration
 
 ## Contributing
 
-To add a new scenario:
-1. Create folder with descriptive name
-2. Include `app.py` with implementation
-3. Add `README.md` with technical details
-4. Follow existing code patterns
+**Adding scenarios:**
+1. Fork repository
+2. Create scenario directory with required structure
+3. Include comprehensive README with technical details
+4. Test with actual Azure services
+5. Submit pull request
 
-## Resources
+**Code standards:**
+• Python type hints required
+• Error handling for service calls
+• Environment configuration patterns
+• Documentation for public APIs
 
-- [Semantic Kernel Documentation](https://learn.microsoft.com/en-us/semantic-kernel/)
-- [Semantic Kernel GitHub](https://github.com/microsoft/semantic-kernel)
-- [Azure OpenAI Service](https://azure.microsoft.com/en-us/products/cognitive-services/openai-service)
+## Support
+
+**Technical issues:**
+• [GitHub Issues](https://github.com/Ricky-G/ai-scenario-hub/issues) - Bug reports and feature requests
+• [Discussions](https://github.com/Ricky-G/ai-scenario-hub/discussions) - Implementation questions
+
+**Security:**
+• Review [SECURITY.md](./SECURITY.md) for vulnerability reporting
+• Validate configurations before production deployment
+
+## License
+
+MIT License - Open source usage permitted.

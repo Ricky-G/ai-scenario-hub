@@ -1,0 +1,4 @@
+# Semantic Kernel Multi-Agent Dependencies
+semantic-kernel==1.0.3
+python-dotenv==1.0.0
+asyncio
